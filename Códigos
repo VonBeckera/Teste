@@ -1,0 +1,121 @@
+# Java
+package aulas;
+
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class Aluno {
+	
+	private String nome;
+	private int idade;
+	private String cpf;
+	private int matricula;
+	private int opcao = 0 ; 
+	Scanner n = new Scanner(System.in);
+	
+	public Aluno() {
+	    this.nome = nome;
+	    this.idade = idade;
+	    this.cpf = cpf;
+	    this.matricula = matricula;
+	}
+	
+	  public void setNome(String nome) {
+	        this.nome = nome;
+	    }
+	  
+	  public String getNome() {
+	        return nome;
+	    }
+
+	  
+	  public String getCpf() {
+	        return cpf;
+	    }
+	  
+	  public void setCpf(String cpf) {
+	        this.cpf = cpf;
+	    }
+	  
+	  public int getIdade() {
+	        return idade;
+	    }
+
+	    public void setIdade(int idade) {
+	        this.idade = idade;
+	    }
+	    
+	    public int getMatricula() {
+	        return matricula;
+	    }
+
+	    public void setMatricula(int matricula) {
+	        this.matricula = matricula;
+	    }
+	    
+	    ArrayList<Aluno> lista = new ArrayList<>();
+
+	public void cadastroAluno() {
+        
+     while (true) {
+    	 
+        System.out.println("Digite os dados do Aluno:\n ");
+        
+        
+        System.out.println("Digite nome do Aluno: ");
+        nome = n.next();
+        
+        System.out.println("Digite o CPF do Aluno: ");
+        cpf = n.next();
+        
+        System.out.println("Digite idade do Aluno: ");
+        idade = n.nextInt();
+        
+        matricula = (int) Math.floor(Math.random() * 1000000);
+        
+       
+        
+        Aluno aluno = new Aluno();
+        
+        aluno.setNome(nome);
+        aluno.setIdade(idade);
+        aluno.setCpf(cpf);
+        aluno.setMatricula(matricula);
+        
+        lista.add(aluno);
+        
+        System.out.println("O Aluno " + nome + " foi cadastrado com sucesso com Matrícula \n" + matricula);
+        
+        System.out.println("Deseja cadastrar outro aluno? \n1 - Sim == 2 - Não");
+        
+         opcao = n.nextInt();
+        
+        if (opcao == 1) {
+        	continue;
+        }
+        else if(opcao == 2){
+        	System.out.println("Obrigado por usar Nosso Sistema, até Mais!!!");
+        	break;
+        }
+        else {
+        	System.out.println("Opção Inválida, Aluno não cadastrado voltar ao menu incial");
+        	 continue;
+        }
+
+
+     }
+     
+     
+     
+   
+	}
+	
+	public void info() {
+		System.out.println("Os alunos cadastrados são:");
+	    for (Aluno aluno : lista) {
+	        System.out.println("Nome " + aluno.getNome() + ", CPF: " + aluno.getCpf() + ", Idade: " + aluno.getIdade() + ", Matrícula: " + aluno.getMatricula());
+	    }
+		
+	}
+	
+}
